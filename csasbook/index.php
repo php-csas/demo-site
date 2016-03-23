@@ -35,13 +35,6 @@
 
 <body id="page-top" class="index">
 
-    <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            echo $_POST["post-text"];
-            echo $_POST["post-link"];
-        }
-    ?>
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -101,16 +94,16 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <div class="row">
                             <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" name="post-text" required data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea class="form-control" placeholder="Your Message *" name="message" required data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="url" class="form-control" placeholder="Share a link" name="post-link">
+                                    <input type="url" class="form-control" placeholder="Share a link" name="link">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -131,6 +124,7 @@
                     <br><br>    
 
                     <?php
+
                         $servername = "localhost";
                         $username = "root";
                         $password = "php-csas";
@@ -145,6 +139,19 @@
                             die("Connection failed: " . $conn->connect_error);
                         } 
 
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            $text = $conn->real_escape_string($_POST["message"]);
+                            $link = $conn->real_escape_string($_POST["link"]);
+                            $date = date("M j");
+                            $time = date("g:ia");
+
+                            $sql = "INSERT INTO post (text, link) VALUES ('$text', '$link')";
+
+                            if ($conn->query($sql) === FALSE) {
+                                echo "Error: " . $sql . "<br>" . $conn->error;
+                            }
+                        }
+
                         $sql = "SELECT text, link, date FROM post ORDER BY date DESC";
                         $result = $conn->query($sql);
 
@@ -155,22 +162,21 @@
                                 $sqldate = $row["date"];
                                 $timestamp = strtotime($sqldate);
                                 $date = date("M j", $timestamp);
-                                $time = date("g:ma", $timestamp);
+                                $time = date("g:ia", $timestamp);
                                 $text = $row["text"];
                                 $link = $row["link"];
 
-                                echo "<h4 class=\"text-muted\">$date at $time:</h4>";
-                                echo "<h3>$text</h3>";
-
+                                if ($text) {
+                                    echo "<h4 class=\"text-muted\">$date at $time:</h4>";
+                                    echo "<p>$text</p>";
+                                }   
                                 if ($link) {
-                                    echo "<a href=\"$link\">$link</a>";
+                                    echo "<a href=\"$link\">$link</a><br>";
                                 }
-
-                                echo "<br><br>";
                             }
                         } 
                         else {
-                            echo "0 results";
+                            echo "No posts to display";
                         }
                         
                         $conn->close();
@@ -230,7 +236,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2014</span>
+                    <span class="copyright">Copyright &copy; PHP CSAS 2014</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
