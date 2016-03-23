@@ -35,6 +35,13 @@
 
 <body id="page-top" class="index">
 
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            echo $_POST["post-text"];
+            echo $_POST["post-link"];
+        }
+    ?>
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -96,64 +103,83 @@
                 <div class="col-lg-12">
                     <form name="sentMessage" id="contactForm" novalidate>
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-3"></div>
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea class="form-control" placeholder="Your Message *" name="post-text" required data-validation-required-message="Please enter a message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="url" class="form-control" placeholder="Share a link" name="post-link">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
+                            <div class="col-lg-3"></div>
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Send Message</button>
+                                <input type="submit" name="submit" value="Submit" class="btn btn-xl">
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
 
-            <div class="col-lg-12">
-                <h3 class="text-muted">Posted at 8:20</h3>
-                <p>Here's a test! This is a long post</p> 
-            </div>
-            <div class="col-lg-12">
-                <h3 class="text-muted">Posted at 8:20</h3>
-                <p>Here's a test! This is a long post</p> 
-            </div>
-            <div class="col-lg-12">
-                <h3 class="text-muted">Posted at 8:20</h3>
-                <p>Here's a test! This is a long post</p> 
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <br><br>    
+
+                    <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "php-csas";
+                        $database = "csas";
+
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $database);
+
+                        // Check connection
+                        if ($conn->connect_error) {
+                            echo $conn->connect_error;
+                            die("Connection failed: " . $conn->connect_error);
+                        } 
+
+                        $sql = "SELECT text, link, date FROM post ORDER BY date DESC";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+
+                            while($row = $result->fetch_assoc()) {
+
+                                $sqldate = $row["date"];
+                                $timestamp = strtotime($sqldate);
+                                $date = date("M j", $timestamp);
+                                $time = date("g:ma", $timestamp);
+                                $text = $row["text"];
+                                $link = $row["link"];
+
+                                echo "<h4 class=\"text-muted\">$date at $time:</h4>";
+                                echo "<h3>$text</h3>";
+
+                                if ($link) {
+                                    echo "<a href=\"$link\">$link</a>";
+                                }
+
+                                echo "<br><br>";
+                            }
+                        } 
+                        else {
+                            echo "0 results";
+                        }
+                        
+                        $conn->close();
+                    ?>
+                </div>
+                <div class="col-lg-3"></div>
             </div>
         </div>
     </section>
-
-    <!-- Clients Aside -->
-    <aside class="clients">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/envato.jpg" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </aside>
     
     <!-- Contact Section -->
     <section id="contact">
