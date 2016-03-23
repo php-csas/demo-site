@@ -94,7 +94,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" novalidate>
                         <div class="row">
                             <div class="col-lg-3"></div>
                             <div class="col-lg-6">
@@ -103,7 +103,7 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="url" class="form-control" placeholder="Share a link" name="link">
+                                    <input type="url" class="form-control" placeholder="Share a link (optional)" name="link">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
