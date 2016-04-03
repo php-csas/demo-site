@@ -1,27 +1,26 @@
-# php-csas-vagrant
+# [Start Bootstrap](http://startbootstrap.com/) - [Agency](http://startbootstrap.com/template-overviews/agency/)
 
-Vagrant config for php-csas development environment
+[Agency](http://startbootstrap.com/template-overviews/agency/) is a one page agency portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features several content sections, a responsive portfolio grid with hover effects, full page portfolio item modals, a responsive timeline, and a working PHP contact form.
 
-## How To Use
-- If you don't already have Virtualbox and Vagrant, follow the directions below:
-    - Download and install Virtualbox: <https://www.virtualbox.org/wiki/Downloads>
-    - Download and install Vagrant: <https://www.vagrantup.com/docs/installation>
-- Clone or download a zip of this repository into a directory for working on the PHP CSAS project.
-    - To clone: `git clone https://github.com/php-csas/php-csas-vagrant.git`
-    - To download:
-        - Find the button on the main page of this repo on github to download the .zip file.
-        - Once downloaded, unzip the archive and put it into your working directory for PHP CSAS.
-- Change directories to the repository:
-    - On Unix-based systems, in your terminal change directories with `cd` to the place where you ran `git clone`.
-    - On Windows systems:
-        - Open up windows command prompt from the start menu by typing `cmd` in the search bar.
-        - Change directories to the place where you unzipped the git archive or cloned the repo using `cd`.
-- From inside the directory you cloned or unzipped, run `vagrant up` to start the virtual machine.
-- Once that finished, run `vagrant ssh` to get into the dev environment.
-- When it is up, on your local machine go to localhost:8000/info.php to see our PHP version being used by Apache.
+## Getting Started
 
-## NOTE:
-- If you have already ran this vagrant image, then you need to run `vagrant up` as `vagrant up --provision` to remake the image.
+To use this theme, choose one of the following options to get started:
+* Download the latest release on Start Bootstrap
+* Fork this repository on GitHub
 
-## Useful commands:
-- Running `build-php` will build our PHP version. You still need to run `make` and `sudo make install` inside PHPHOME.
+## Bugs and Issues
+
+Have a bug or an issue with this theme? [Open a new issue](https://github.com/IronSummitMedia/startbootstrap-agency/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/agency/).
+
+## Creator
+
+Start Bootstrap was created by and is maintained by **David Miller**, Managing Partner at [Iron Summit Media Strategies](http://www.ironsummitmedia.com/).
+
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
+
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+
+## Copyright and License
+
+Copyright 2013-2015 Iron Summit Media Strategies, LLC. Code released under the [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-agency/blob/gh-pages/LICENSE) license.
