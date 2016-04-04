@@ -127,7 +127,7 @@
 
                         date_default_timezone_set('UTC');
 
-                        $servername = "localhost";
+                        $servername = "127.0.0.1";
                         $username = "root";
                         $password = "csas";
                         $database = "csas";
