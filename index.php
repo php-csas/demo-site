@@ -129,7 +129,7 @@
 
                         $servername = "localhost";
                         $username = "root";
-                        $password = "php-csas";
+                        $password = "csas";
                         $database = "csas";
 
                         // Create connection
