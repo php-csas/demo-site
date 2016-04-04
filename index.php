@@ -153,7 +153,7 @@
                                     echo "<p>"; echo "$text"; echo "</p>";
                                 }
                                 if ($link) {
-                                    echo "<a href=\"$link\">"; echo "$link"; echo "</a><br>";
+                                    echo "<a href=\""; echo "$link"; echo "\">"; echo "$link"; echo "</a><br>";
                                 }
                             }
                         } 
