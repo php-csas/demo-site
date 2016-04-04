@@ -137,7 +137,7 @@
                         if ($conn->connect_error) {
                             echo $conn->connect_error;
                             die("Connection failed: " . $conn->connect_error);
-                        } 
+                        }
 
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $text = $conn->real_escape_string($_POST["message"]);
@@ -167,11 +167,11 @@
                                 $link = $row["link"];
 
                                 if ($text) {
-                                    echo "<h4 class=\"text-muted\">$date at $time:</h4>";
-                                    echo "<p>$text</p>";
-                                }   
+                                    echo "<h4 class=\"text-muted\">"; echo "$date at $time:"; echo "</h4>";
+                                    echo "<p>"; echo "$text"; echo "</p>";
+                                }
                                 if ($link) {
-                                    echo "<a href=\"$link\">$link</a><br>";
+                                    echo "<a href=\"$link\">"; echo "$link"; echo "</a><br>";
                                 }
                             }
                         } 
