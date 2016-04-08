@@ -55,32 +55,12 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#recent-posts">Try It</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Sign Up</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">Contact Us</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Csasbook</div>
-                <div class="intro-heading">The social network for sanitization</div>
-                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
-            </div>
-        </div>
-    </header>
 
     <!-- Services Section -->
     <section id="recent-posts">
@@ -125,9 +105,11 @@
 
                     <?php
 
-                        $servername = "localhost";
+                        date_default_timezone_set('UTC');
+
+                        $servername = "127.0.0.1";
                         $username = "root";
-                        $password = "php-csas";
+                        $password = "csas";
                         $database = "csas";
 
                         // Create connection
@@ -137,7 +119,7 @@
                         if ($conn->connect_error) {
                             echo $conn->connect_error;
                             die("Connection failed: " . $conn->connect_error);
-                        } 
+                        }
 
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $text = $conn->real_escape_string($_POST["message"]);
@@ -167,11 +149,11 @@
                                 $link = $row["link"];
 
                                 if ($text) {
-                                    echo "<h4 class=\"text-muted\">$date at $time:</h4>";
-                                    echo "<p>$text</p>";
-                                }   
+                                    echo "<h4 class=\"text-muted\">"; echo "$date at $time:"; echo "</h4>";
+                                    echo "<p>"; echo "$text"; echo "</p>";
+                                }
                                 if ($link) {
-                                    echo "<a href=\"$link\">$link</a><br>";
+                                    echo "<a href=\""; echo "$link"; echo "\">"; echo "$link"; echo "</a><br>";
                                 }
                             }
                         } 
@@ -182,79 +164,15 @@
                         $conn->close();
                     ?>
                 </div>
-                <div class="col-lg-3"></div>
             </div>
         </div>
     </section>
     
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; PHP CSAS 2014</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
+                <div class="col-md-12">
+                    <span class="copyright">Copyright &copy; PHP CSAS <?php echo date("Y") ?></span>
                 </div>
             </div>
         </div>
