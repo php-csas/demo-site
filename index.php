@@ -74,7 +74,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" novalidate>
+                    <form method="post" id="commentForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" novalidate>
                         <div class="row">
                             <div class="col-lg-3"></div>
                             <div class="col-lg-6">
@@ -101,7 +101,7 @@
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6">
-                    <br><br>    
+                    <br><br>
 
                     <?php
 
@@ -156,18 +156,18 @@
                                     echo "<a href=\""; echo "$link"; echo "\">"; echo "$link"; echo "</a><br>";
                                 }
                             }
-                        } 
+                        }
                         else {
                             echo "No posts to display";
                         }
-                        
+
                         $conn->close();
                     ?>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <footer>
         <div class="container">
             <div class="row">
