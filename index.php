@@ -80,7 +80,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="col-sm-6 control-label" for="formGroupInputSmall">Your Message *</label>
-                                    <textarea class="form-control" <?php if (isset($_GET['msg'])) { echo $_GET['msg'];} ?> name="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea class="form-control" <?php if (isset($_GET['msg'])) { echo "placeholder="; echo $_GET['msg'];} ?> name="message" required data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
