@@ -79,17 +79,17 @@
                             <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                <label class="col-sm-2 control-label" for="formGroupInputSmall">Your Message (Required)</label>
-                                <textarea class="form-control" placeholder=<?php if (isset($_GET["msg"])) { echo $_GET["msg"];} else { echo "Message";} ?> name="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <label class="col-sm-6 control-label" for="formGroupInputSmall">Your Message (Required)</label>
+                                    <textarea class="form-control" placeholder=<?php if (isset($_GET["msg"])) { echo $_GET["msg"];} else { echo "Message";} ?> name="message" required data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label" for="formGroupInputSmall">Share a Link (Optional)</label>
+                                    <label class="col-sm-6 control-label" for="formGroupInputSmall">Share a Link (Optional)</label>
                                     <input type="url" class="form-control" placeholder="Link" name="link">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label" for="formGroupInputSmall">Your Name (Optional)</label>
+                                    <label class="col-sm-6 control-label" for="formGroupInputSmall">Your Name (Optional)</label>
                                     <input type="text" class="form-control" placeholder="<?php if (isset($_GET["name"])) { echo $_GET["name"];} else { echo "Name";} ?>" name="commentName">
                                     <p class="help-block text-danger"></p>
                                 </div>
