@@ -135,7 +135,7 @@
                             $date = date("M j");
                             $time = date("g:ia");
 
-                            $sql = "INSERT INTO post (text, link, name) VALUES ('$text', '$link')";
+                            $sql = "INSERT INTO post (text, link, name) VALUES ('$text', '$link', '$name')";
 
                             if ($conn->query($sql) === FALSE) {
                                 echo "Error: " . $sql . "<br>" . $conn->error;
@@ -155,7 +155,7 @@
                                 $time = date("g:ia", $timestamp);
                                 $text = $row["text"];
                                 $link = $row["link"];
-                                $link = $row["name"];
+                                $name = $row["name"];
 
                                 if ($text) {
                                     echo "<h4 class=\"text-muted\">"; echo "$date at $time:"; echo "</h4>";
