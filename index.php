@@ -132,17 +132,18 @@
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $text = $conn->real_escape_string($_POST["message"]);
                             $link = $conn->real_escape_string($_POST["link"]);
+                            $name = $conn->real_escape_string($_POST["commentName"]);
                             $date = date("M j");
                             $time = date("g:ia");
 
-                            $sql = "INSERT INTO post (text, link) VALUES ('$text', '$link')";
+                            $sql = "INSERT INTO post (text, link, name) VALUES ('$text', '$link')";
 
                             if ($conn->query($sql) === FALSE) {
                                 echo "Error: " . $sql . "<br>" . $conn->error;
                             }
                         }
 
-                        $sql = "SELECT text, link, date FROM post ORDER BY date DESC";
+                        $sql = "SELECT text, link, name, date FROM post ORDER BY date DESC";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -155,6 +156,7 @@
                                 $time = date("g:ia", $timestamp);
                                 $text = $row["text"];
                                 $link = $row["link"];
+                                $link = $row["name"];
 
                                 if ($text) {
                                     echo "<h4 class=\"text-muted\">"; echo "$date at $time:"; echo "</h4>";
@@ -162,6 +164,9 @@
                                 }
                                 if ($link) {
                                     echo "<a href=\""; echo "$link"; echo "\">"; echo "$link"; echo "</a><br>";
+                                }
+                                if ($name) {
+                                    echo "<p>By "; echo "$name"; echo ".";
                                 }
                             }
                         }
