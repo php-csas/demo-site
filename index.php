@@ -79,8 +79,8 @@
                             <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="col-sm-6 control-label" for="formGroupInputSmall">Your Message *</label>
-                                    <textarea class="form-control" <?php if (isset($_GET['msg'])) { echo "placeholder="; echo $_GET['msg'];} ?> name="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <label class="col-sm-6 control-label" for="formGroupInputSmall">Your Message</label>
+                                    <textarea class="form-control" <?php if (isset($_GET['msg'])) { echo "placeholder="; echo $_GET['msg'];} ?> name="message"></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
@@ -93,7 +93,6 @@
                                     <input type="text" class="form-control" placeholder="<?php if (isset($_GET["name"])) { echo $_GET["name"];} ?>" name="commentName">
                                     <p class="help-block text-danger"></p>
                                 </div>
-                            <br /><p style="color: red;">* - Required Field</p><br />
                             </div>
                             <div class="col-lg-3"></div>
                             <div class="clearfix"></div>
