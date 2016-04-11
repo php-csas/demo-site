@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-6 control-label" for="formGroupInputSmall">Your Name</label>
-                                    <input type="text" class="form-control" placeholder="<?php if (isset($_GET["name"])) { echo $_GET["name"];} else { echo "";} ?>" name="commentName">
+                                    <input type="text" class="form-control" placeholder="<?php if (isset($_GET["name"])) { echo $_GET["name"];} ?>" name="commentName">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             <br /><p style="color: red;">* - Required Field</p><br />
