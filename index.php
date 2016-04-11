@@ -79,11 +79,15 @@
                             <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" name="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <textarea class="form-control" placeholder="Your Message *" value=<?php echo $_GET["msg"];?> name="message" required data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
                                     <input type="url" class="form-control" placeholder="Share a link (optional)" name="link">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="<?php echo $_GET["name"];?>" placeholder="Enter your name (optional)" name="commentName">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
