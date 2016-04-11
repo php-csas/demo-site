@@ -79,7 +79,7 @@
                             <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                <textarea class="form-control" placeholder=<?php if (isset($_GET["msg"])) { echo $_GET["msg"];} else { echo "Your Message *";} ?> name="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <textarea class="form-control" placeholder=<?php if (isset($_GET["msg"])) { echo $_GET["msg"];} else { echo "Your\ Message\ *";} ?> name="message" required data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
@@ -87,7 +87,7 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="<?php if (isset($_GET["name"])) { echo $_GET["name"];} else { echo "Your Name (optional)";} ?>" name="commentName">
+                                    <input type="text" class="form-control" placeholder="<?php if (isset($_GET["name"])) { echo $_GET["name"];} else { echo "Your\ Name\ (optional)";} ?>" name="commentName">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
